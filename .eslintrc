@@ -3,7 +3,7 @@
   "extends": ["plugin:@typescript-eslint/recommended", "prettier"],
   "plugins": ["prettier"],
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {

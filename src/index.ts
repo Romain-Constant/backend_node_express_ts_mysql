@@ -1,13 +1,14 @@
-import express, { Express, Request, Response } from 'express'
+import dotenv from 'dotenv'
 
-const app: Express = express()
+import express from 'express'
+import thingRouter from './routes/thingRouter'
+dotenv.config()
+
+const app = express()
 
 app.use(express.json())
+app.use('/things', thingRouter)
 
-app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Hello World!' })
-})
-
-app.listen(5050, async () => {
-  console.log('Server is running at http://localhost:5050')
+app.listen(process.env.APP_PORT, () => {
+  console.log(`Server listening on port ${process.env.APP_PORT}`)
 })
