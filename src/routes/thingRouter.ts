@@ -1,7 +1,5 @@
-import express, { Request, Response } from 'express'
-import * as thingModel from '../models/thing.model'
+import express from 'express'
 import * as thingController from '../controllers/thing.controller'
-import Thing from '../types/thing'
 
 const thingRouter = express.Router()
 

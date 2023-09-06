@@ -8,7 +8,8 @@
     "start": "TZ='UTC' node dist/index.js",
     "dev": "TZ='UTC' nodemon src/index.ts",
     "lint": "eslint src/**/*.ts",
-    "format": "eslint src/**/*.ts --fix"
+    "format": "eslint src/**/*.ts --fix",
+    "migrate": "node migrate.js"
   },
   "keywords": [],
   "author": "",
