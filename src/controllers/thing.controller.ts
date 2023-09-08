@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import Thing from 'types/thing'
 import * as thingModel from '../models/thing.model'
 
 const handleResponse = (res: Response, statusCode: number, message: string) => {
@@ -11,7 +12,12 @@ const handleUnexpectedError = (res: Response) => {
 
 export const getAllThings = async (req: Request, res: Response): Promise<Response> => {
   try {
-    const things = await thingModel.findAllThings()
+    const things: Thing[] = await thingModel.findAllThings()
+
+    if (things.length === 0) {
+      return handleResponse(res, 404, 'No things found')
+    }
+
     return res.status(200).json({ data: things })
   } catch (err) {
     console.error(err)
